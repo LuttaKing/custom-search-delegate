@@ -1,13 +1,13 @@
 
-import 'package:fluent_ui/fluent_ui.dart' as fluent;
+// import 'package:fluent_ui/fluent_ui.dart' as fluent;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/curpetino_things/cupertino_search_delegate.dart';
 import 'package:flutter_search_bar/platform_itemList.dart';
 import 'package:flutter_search_bar/platform_search.dart';
 
-class CupertinoSearch extends fluent.StatefulWidget {
-  final List<PlatformItem> Function(String text) search;
+class CupertinoSearch extends StatefulWidget {
+  final List<UserModel> Function(String text) search;
 
   CupertinoSearch(this.search);
 
@@ -15,7 +15,7 @@ class CupertinoSearch extends fluent.StatefulWidget {
   _CupertinoSearchState createState() => _CupertinoSearchState();
 }
 
-class _CupertinoSearchState extends fluent.State<CupertinoSearch> {
+class _CupertinoSearchState extends State<CupertinoSearch> {
   late final FocusNode _focusNode;
 
   @override
@@ -44,7 +44,7 @@ class _CupertinoSearchState extends fluent.State<CupertinoSearch> {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: fluent.Padding(
+        body: Padding(
           padding: const EdgeInsets.only(top: 300,left: 20,right: 20),
           child: Column(
             children: [

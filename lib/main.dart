@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/curpetino_things/cupertino_search_ui.dart';
 import 'package:flutter_search_bar/material_things/material_search_ui.dart';
@@ -14,28 +13,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar( title: Text('Pick demo'),  ),
         body: Builder(
           builder: (context) => Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MaterialSearch(search))),
-                  child: Container(color: Colors.orange[100],padding: EdgeInsets.all(20),child: Text('Android Demo')),
+                  onTap: () => Navigator.push( context, MaterialPageRoute( builder: (context) => MaterialSearch(search))),
+                  child: Container(
+                      color: Colors.orange[100],
+                      padding: EdgeInsets.all(20),
+                      child: Text('Android Demo')),
                 ),
                 GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CupertinoSearch(search))),
-                  child: Container(color: Colors.pink[100],padding: EdgeInsets.all(20),child: Text('IOS DEmo')),
+                  onTap: () => Navigator.push( context,
+                      MaterialPageRoute( builder: (context) => CupertinoSearch(search))),
+                  child: Container(
+                     
+                      padding: EdgeInsets.all(20),
+                      child: Text('IOS DEmo')),
                 ),
-           
               ],
             ),
           ),
@@ -44,10 +42,14 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  List<PlatformItem> search(String text) {
-    return platforms
-        .where((element) =>
-            element.name.toLowerCase().contains(text.toLowerCase()))
-        .toList();
+  List<UserModel> search(String searchTerm) {
+     return userList.where((element) =>
+        element.searchThings().toLowerCase().contains(searchTerm.toLowerCase())).toList();
+  
+
+//search by username
+    // return userList.where((element) =>
+    //     element.username.toLowerCase().contains(searchTerm.toLowerCase())).toList();
+  
   }
 }

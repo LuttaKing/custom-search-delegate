@@ -3,7 +3,7 @@ import 'package:flutter_search_bar/platform_itemList.dart';
 import 'package:flutter_search_bar/platform_search.dart';
 
 class CupertinoSearchDelegate extends AbstractPlatformSearchDelegate {
-  final List<PlatformItem> Function(String text) search;
+  final List<UserModel> Function(String text) search;
   CupertinoSearchDelegate(this.search);
   Widget buildActions(BuildContext context) {
     return CupertinoButton(
@@ -16,14 +16,14 @@ class CupertinoSearchDelegate extends AbstractPlatformSearchDelegate {
   }
 
   Widget buildResults(BuildContext context) {
-    final List<PlatformItem> result = search(query);
-    return PlatformItemsWidget(result);
+    final List<UserModel> result = search(query);
+    return UserItemsWidget(result);
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final List<PlatformItem> result = search(query);
-    return PlatformItemsWidget(result);
+    final List<UserModel> result = search(query);
+    return UserItemsWidget(result);
   }
 
   @override

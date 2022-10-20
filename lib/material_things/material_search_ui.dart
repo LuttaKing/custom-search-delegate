@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/material_things/material_search_delegate.dart';
 import 'package:flutter_search_bar/platform_itemList.dart';
 import 'package:flutter_search_bar/platform_search.dart';
 
-
 class MaterialSearch extends StatelessWidget {
-  final List<PlatformItem> Function(String text) search;
+  final List<UserModel> Function(String text) search;
 
   MaterialSearch(this.search);
 
@@ -22,15 +20,14 @@ class MaterialSearch extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                showPlatformSearch(
-                  context: context,
+                showPlatformSearch( context: context,
                   delegate: MaterialSearchDelegate(search),
                 );
               },
             ),
           ],
         ),
-        body: PlatformItemsWidget(platforms),
+        body: Center(child: Text('Body')),
       ),
     );
   }
